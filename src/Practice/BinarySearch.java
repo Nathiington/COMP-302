@@ -17,10 +17,10 @@ public class BinarySearch
         int left = 0;
         int right = arr.length - 1;
 
-        while (right >= left)
+        while (right > left)
         {
 //        To calculate the midpoint of our array
-            int mid = left + (right-left)/2;
+            int mid = (right+left)/2;
 
 //         To check if the midpoint of our array is our desired value
             if (arr[mid] == x)
@@ -38,11 +38,47 @@ public class BinarySearch
             {
                 left = mid +1;
             }
+
+//          Checking if the desired number is first in the array
+            if(arr[left] == x)
+            {
+                return left;
+            }
+
 //Repeat loop until our desired value is our mid
         }
 //Then in our function we have a while loop to go through the array and return our desired value's index else return an arbitrary int
-        return  -0;
+        return  -1;
     }
+//    A different implementation to give the same result
+//    static int ontySearch(int[] arr, int x)
+//    {
+//        int left = 0;
+//        int right = arr.length -1;
+//        int mid;
+//
+//        while (left<right)
+//        {
+//            mid = (left + right)/2;
+//            if(x > arr[mid])
+//            {
+//                left = mid+1;
+//            }
+//            else
+//            {
+//                right = mid;
+//            }
+//        }
+//
+//        if (arr[left] == x)
+//        {
+//            return left;
+//        }
+//        else
+//        {
+//            return -1;
+//        }
+//    }
 
     public static void main(String[] args)
     {
@@ -54,7 +90,7 @@ public class BinarySearch
         int x = scanf.nextInt();
 
         int result = search(myArr,x);
-        if (result == -0)
+        if (result == -1)
         {
             System.out.println("Element is not in the array");
         }
@@ -62,6 +98,17 @@ public class BinarySearch
         {
             System.out.println("Element is at index: " + result);
         }
+
+//        System.out.println("Onty");
+//        result = ontySearch(myArr,x);
+//        if (result == -1)
+//        {
+//            System.out.println("Element is not in the array");
+//        }
+//        else
+//        {
+//            System.out.println("Element is at index: " + result);
+//        }
 
     }
 }

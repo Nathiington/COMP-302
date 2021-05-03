@@ -21,7 +21,7 @@ public class LinearSearch
                 return  i;
             }
         }
-        return -0;
+        return -1;
     }
 
 
@@ -30,13 +30,13 @@ public class LinearSearch
     {
         Scanner scanf = new Scanner(System.in);
 
-        int myArr[] = {5,12,23,2,3,4,34,45,67};
+        int[] myArr = {5,12,23,2,3,4,34,45,67};
         System.out.println(Arrays.toString(myArr));
         System.out.println("Select a number to locate the index");
         int x = scanf.nextInt();
 
         int result = search(myArr,x);
-        if (result == -0)
+        if (result == -1)
         {
             System.out.println("Element is not in the array");
         }
@@ -44,5 +44,6 @@ public class LinearSearch
         {
             System.out.println("Element is at index: " + result);
         }
+
     }
 }
