@@ -1,7 +1,6 @@
 package Practice;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 //Binary Search takes an array, splits it into 2, then checks to see if the desired value is less than, greater than or equal to our desired number
 //If it is greater than, the end of our array now becomes the midpoint and this process is repeated until the desired value is found

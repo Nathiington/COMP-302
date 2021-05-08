@@ -1,4 +1,4 @@
-package Submission1;
+package Linked_List;
 import java.util.*;
 
 public class LinkList
@@ -39,7 +39,7 @@ public class LinkList
             System.out.println("List is empty");
             return;
         }
-        System.out.println("Nodes of singly linked list: ");
+        System.out.println("Nodes of linked list: ");
         while(current != null)
         {
             //Prints each node by incrementing pointer
@@ -53,14 +53,13 @@ public class LinkList
     //this will insert a new node to the linked list at a specified location
     public void insertSomewhere(int data)
     {
-
         Node current;
-        Node temp;
+        Node temporary;
         Node newNode = new Node(data);
 
         if(head == null)
         {
-            //If list is empty, both head and tail will point to new node
+            //If list is empty, both head and tail will point to the new node
             head = newNode;
             tail = newNode;
         }
@@ -69,83 +68,87 @@ public class LinkList
             //here we input the position of our new node in the array
             System.out.println("Insert into which position?");
             int position = scanf.nextInt();
-            //Node temp points to the head
-            temp = head;
+            //Node temporary points to the head
+            temporary = head;
             current = null;
 
             //Map through the list until the position is reached
             for (int i = 0; i<position-1 ;i++)
             {
-                //Node current will point to temp
-                current = temp;
-                //Node temp will point to the next node
-                temp = temp.next;
+                //Node current will point to temporary
+                current = temporary;
+                //Node temporary will point to the next node
+                temporary = temporary.next;
             }
 
             //current node will point to new Node
             current.next = newNode;
-            //new Node will point to temp
-            newNode.next = temp;
+            //new Node will point to temporary
+            newNode.next = temporary;
         }
     }
 
     //this will delete a node based on the value of the node
     public void deleteNode(int deleteValue)//deleteValue is the value of the node which we want to delete
     {
-        Node temp = head;
+        Node temporary = head;
         Node prev = null;
 
         //If we're deleting the head
-        if(temp != null && temp.value == deleteValue)
+        if(temporary != null && temporary.value == deleteValue)
         {
-            head = temp.next; //changing the head to the next Node
+            head = temporary.next; //changing the head to the next Node
             return;
         }
 
-        // Search for the key to be deleted, keep track of
-        // the previous node as we need to change temp.next
-        while (temp != null && temp.value != deleteValue) {
-            prev = temp;
-            temp = temp.next;
+        // Searching for the value to be deleted, keep track of
+        // the previous node as we need to change temporary.next
+        while (temporary != null && temporary.value != deleteValue) {
+            prev = temporary;
+            temporary = temporary.next;
         }
 
         // If key was not present in linked list
-        if (temp == null)
+        if (temporary == null)
             return;
 
-        // Unlink the node from linked list
-        prev.next = temp.next;
+        // Meaning temporary.next == null therefore the tail so
+        // so the previous node next address now equals null therefore making it the new tail
+        prev.next = temporary.next;
     }
 
     //this will allow the user to edit the value of a specific node based on the value that we want to edit
-    public void editNode(int editValue)//editValue is the value that want to edit
+    public void editNode(int editValue)//editValue is the value that you want to edit
     {
-        Node temp = head;
+        Node temporary = head;
 
         //If we're editing the head
-        if(temp != null && temp.value == editValue)
+        if(temporary != null && temporary.value == editValue)
         {
-            head = temp.next; //changing the head to the next Node
+            System.out.println("Insert new value");
+            int newValue = scanf.nextInt();
+            temporary.value = newValue;
             return;
         }
 
         //this will map through the linked list until it reaches the element with the value we want to edit
-        while (temp.next != null)
+        while (temporary.next != null)
         {
-            temp = temp.next;
+            temporary = temporary.next;
 
             //this will confirm if the value we want is indeed where we ended up stopping in the mapping part and will give prompt to insert a new value
-            if(temp.value == editValue)
+            if(temporary.value == editValue)
             {
                 System.out.println("Insert new value");
                 int newValue = scanf.nextInt();
-                temp.value = newValue;
-                break;
+                temporary.value = newValue;
+                return;
             }
             //this will check if we are in the tail and since we do not have the same value(as it the previous condition would have run) we can say that there is no value in the linked list
-            else if ( temp.next == null)
+            else if ( temporary.next == null)
             {
                 System.out.println("No such value in the linked list");
+                return;
             }
         }
 

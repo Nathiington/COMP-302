@@ -1,4 +1,4 @@
-package Submission1;
+package Linked_List;
 
 public class Node
 {
