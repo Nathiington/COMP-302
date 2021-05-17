@@ -13,10 +13,13 @@ public class Exercise2
         Set<Integer> set1 = new HashSet<Integer>();
         Set<Integer> set2 = new HashSet<Integer>();
         //2.2
+//        Adding all the numbers in array A to set1
         for (int x: A)
         {
             set1.add(x);
         }
+//        Adding all the numbers in array B to set2
+
         for (int x: B)
         {
             set2.add(x);
@@ -24,7 +27,7 @@ public class Exercise2
         //2.3
         Set<Integer> union = new HashSet<Integer>(set1);
         union.addAll(set2);
-        System.out.println("Union: "+union);
+        System.out.println("Union: "+ union);
         //2,4
         Set<Integer> intersection = new HashSet<Integer>();
         for (int x:union)
