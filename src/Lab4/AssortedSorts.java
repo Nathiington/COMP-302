@@ -5,7 +5,7 @@ public class AssortedSorts
 //    time complexity: O(n^2)
     public void bubbleSort(int[] arr)
     {
-        for (int i = 0; i < arr.length; i++)
+        for (int i = 1; i < arr.length; i++)
         {
             for (int j = arr.length -1; j >= i ; j--)
             {
@@ -23,7 +23,7 @@ public class AssortedSorts
 //    time complexity: O(n^2)
     public void insertionSort(int[] arr)
     {
-        for (int i = 0; i < arr.length; i++)
+        for (int i = 1; i < arr.length; i++)
         {
             for (int j = i; j > 0; j--)
             {
